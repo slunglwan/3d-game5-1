@@ -6,6 +6,7 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField] private float rotationSpeed = 50f;
     [SerializeField] private float distance = 3f;
+    [SerializeField] private LayerMask obstacleLayerMask;
 
     private Transform _target;
     private Vector2 _lookVector;
@@ -28,7 +29,11 @@ public class CameraController : MonoBehaviour
             _polarAngle -= _lookVector.y * rotationSpeed * Time.deltaTime;
             _polarAngle = Mathf.Clamp(_polarAngle, -20f, 60f);
             
-            var cartesianPosition = GetCameraPosition(distance, _polarAngle, _azimuthAngle);
+            // 벽 감지
+            var currentDistance = AdjustCameraDistance();
+            
+            // 카메라 위치 설정
+            var cartesianPosition = GetCameraPosition(currentDistance, _polarAngle, _azimuthAngle);
             transform.position = _target.position + cartesianPosition;
             transform.LookAt(_target);
         }
@@ -61,5 +66,22 @@ public class CameraController : MonoBehaviour
         float z = b * Mathf.Cos(azimuthAngle * Mathf.Deg2Rad);
         
         return new Vector3(x, y, z);
+    }
+
+    private float AdjustCameraDistance()
+    {
+        var currentDistance = distance;
+
+        Vector3 direction = GetCameraPosition(1, _polarAngle, _azimuthAngle).normalized;
+        RaycastHit hit;
+
+        if (Physics.Raycast(_target.position, -direction, out hit,
+                distance, obstacleLayerMask))
+        {
+            float offset = 0.3f;
+            currentDistance = hit.distance - offset;
+            currentDistance = Mathf.Max(currentDistance, 0.5f);
+        }
+        return currentDistance;
     }
 }

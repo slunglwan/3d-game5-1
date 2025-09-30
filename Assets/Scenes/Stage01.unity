@@ -344,7 +344,7 @@ GameObject:
   - component: {fileID: 256687565}
   - component: {fileID: 256687564}
   - component: {fileID: 256687563}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1413,7 +1413,7 @@ GameObject:
   - component: {fileID: 601570480}
   - component: {fileID: 601570479}
   - component: {fileID: 601570478}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4521,6 +4521,7 @@ GameObject:
   - component: {fileID: 1023668176}
   - component: {fileID: 1033175448}
   - component: {fileID: 1033175449}
+  - component: {fileID: 1033175450}
   m_Layer: 0
   m_Name: Ellen
   m_TagString: Untagged
@@ -4590,6 +4591,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EllenPlayerController
   headTransform: {fileID: 267652743}
   breakForce: 1
+  jumpHeight: 2
+--- !u!143 &1033175450
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033018870}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 1.7
+  m_Radius: 0.2
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.0001
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0.85, z: 0}
 --- !u!4 &1033176576
 Transform:
   m_ObjectHideFlags: 0
@@ -6401,6 +6428,10 @@ PrefabInstance:
       propertyPath: rotationSpeed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4221067180604072501, guid: e13b789f8dec1b54e8f2d681d1a8c682, type: 3}
+      propertyPath: obstacleLayerMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 9187316625497892341, guid: e13b789f8dec1b54e8f2d681d1a8c682, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.15603
@@ -6460,7 +6491,7 @@ GameObject:
   - component: {fileID: 1413196952}
   - component: {fileID: 1413196951}
   - component: {fileID: 1413196950}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7136,7 +7167,7 @@ GameObject:
   - component: {fileID: 1439444767}
   - component: {fileID: 1439444766}
   - component: {fileID: 1439444765}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7875,7 +7906,7 @@ GameObject:
   - component: {fileID: 1628571497}
   - component: {fileID: 1628571496}
   - component: {fileID: 1628571495}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8450,7 +8481,7 @@ GameObject:
   - component: {fileID: 2142603273}
   - component: {fileID: 2142603272}
   - component: {fileID: 2142603271}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

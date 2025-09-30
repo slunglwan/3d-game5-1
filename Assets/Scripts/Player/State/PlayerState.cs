@@ -23,7 +23,8 @@ public class PlayerState
     
     protected void Jump(InputAction.CallbackContext context)
     {
-        // _playerController.SetState(EPlayerState.Jump);
+        _playerController.Jump();
+        _playerController.SetState(EPlayerState.Jump);
     }
 
     protected void Rotate(float x, float z)
