@@ -32,6 +32,21 @@ public class PlayerController : MonoBehaviour
         SetState(EPlayerState.Idle);
     }
 
+    private void OnEnable()
+    {
+        // 카메라 초기화
+        _playerInput.camera = Camera.main;
+        if (_playerInput.camera != null)
+        {
+            _playerInput.camera.GetComponent<CameraController>().SetTarget(transform, _playerInput);
+        }
+    }
+
+    private void OnDisable()
+    {
+        
+    }
+
     private void Update()
     {
         if (State != EPlayerState.None)
