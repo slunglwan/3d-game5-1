@@ -26,9 +26,12 @@ public class PlayerController : MonoBehaviour
         
         // 상태 객체 초기화
         var playerStateIdle = new PlayerStateIdle(this, _animator, _playerInput);
+        var playerStateMove = new PlayerStateMove(this, _animator, _playerInput);
+        
         _states = new Dictionary<EPlayerState, IPlayerState>
         {
             { EPlayerState.Idle, playerStateIdle },
+            { EPlayerState.Move, playerStateMove }
         };
         // 상태 초기화
         SetState(EPlayerState.Idle);
