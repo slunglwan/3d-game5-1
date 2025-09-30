@@ -4589,6 +4589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EllenPlayerController
   headTransform: {fileID: 267652743}
+  breakForce: 1
 --- !u!4 &1033176576
 Transform:
   m_ObjectHideFlags: 0

@@ -9,6 +9,11 @@ using static Constants;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Transform headTransform;
+
+    [Header("이동")] 
+    [SerializeField] [Range(1, 5)] private float breakForce = 1f;
+    
+    public float BreakForce => breakForce;
     
     // 컴포넌트 캐싱
     private Animator _animator;
