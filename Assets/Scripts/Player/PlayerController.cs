@@ -8,6 +8,8 @@ using static Constants;
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private Transform headTransform;
+    
     // 컴포넌트 캐싱
     private Animator _animator;
     private PlayerInput _playerInput;
@@ -38,7 +40,7 @@ public class PlayerController : MonoBehaviour
         _playerInput.camera = Camera.main;
         if (_playerInput.camera != null)
         {
-            _playerInput.camera.GetComponent<CameraController>().SetTarget(transform, _playerInput);
+            _playerInput.camera.GetComponent<CameraController>().SetTarget(headTransform, _playerInput);
         }
     }
 
