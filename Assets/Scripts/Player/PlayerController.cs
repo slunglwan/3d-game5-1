@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using NUnit.Framework.Internal;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static Constants;
@@ -40,17 +41,22 @@ public class PlayerController : MonoBehaviour
         var playerStateIdle = new PlayerStateIdle(this, _animator, _playerInput);
         var playerStateMove = new PlayerStateMove(this, _animator, _playerInput);
         var playerStateJump = new PlayerStateJump(this, _animator, _playerInput);
+        var playerStateAttack = new PlayerStateAttack(this, _animator, _playerInput);
         
         _states = new Dictionary<EPlayerState, IPlayerState>
         {
             { EPlayerState.Idle, playerStateIdle },
             { EPlayerState.Move, playerStateMove },
             { EPlayerState.Jump, playerStateJump },
+            { EPlayerState.Attack, playerStateAttack },
         };
         // 상태 초기화
         SetState(EPlayerState.Idle);
+        
+        // Cursor 숨기기
+        _playerInput.actions["Cursor"].performed += _ => GameManager.Instance.SetCursorLock();
     }
-
+    
     private void OnEnable()
     {
         // 카메라 초기화
