@@ -117,11 +117,11 @@ public class EnemyController : MonoBehaviour
         
         // 시야각
         Gizmos.color = Color.red;
-        Vector3 rightDirection = Quaternion.Euler(0, detectionSightAngle, 0) * Vector3.forward;
-        Vector3 leftDirection = Quaternion.Euler(0, -detectionSightAngle, 0) * Vector3.forward;
-        Gizmos.DrawLine(transform.position, rightDirection * PatrolDetectionDistance);
-        Gizmos.DrawLine(transform.position, leftDirection * PatrolDetectionDistance);
-        Gizmos.DrawLine(transform.position, transform.position * PatrolDetectionDistance);
+        Vector3 rightDirection = Quaternion.Euler(0, detectionSightAngle, 0) * transform.forward;
+        Vector3 leftDirection = Quaternion.Euler(0, -detectionSightAngle, 0) * transform.forward;
+        Gizmos.DrawRay(transform.position, rightDirection * PatrolDetectionDistance);
+        Gizmos.DrawRay(transform.position, leftDirection * PatrolDetectionDistance);
+        Gizmos.DrawRay(transform.position, transform.forward * PatrolDetectionDistance);
         
         // Agent 목적지 표시
         if (_navMeshAgent != null && _navMeshAgent.hasPath)
