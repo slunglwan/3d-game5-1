@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     
     // 상태 정보
     public EPlayerState State { get; private set; }
-    private Dictionary<EPlayerState, IPlayerState> _states;
+    private Dictionary<EPlayerState, ICharacterState> _states;
     
     // 캐릭터 이동 정보
     private float _velocityY;
@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
         var playerStateJump = new PlayerStateJump(this, _animator, _playerInput);
         var playerStateAttack = new PlayerStateAttack(this, _animator, _playerInput);
         
-        _states = new Dictionary<EPlayerState, IPlayerState>
+        _states = new Dictionary<EPlayerState, ICharacterState>
         {
             { EPlayerState.Idle, playerStateIdle },
             { EPlayerState.Move, playerStateMove },
