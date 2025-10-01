@@ -14,12 +14,16 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float patrolDetectionDistance = 10f;
     [SerializeField] private LayerMask detactionTargetLayerMask;
     [SerializeField] private float chaseWaitTime = 1f;
+    [SerializeField] private float detectionSightAngle = 30f;
+    [SerializeField] private float minimumRunDistance = 1f;
     
     // AI 관련
     public float PatrolWaitTime => patrolWaitTime;
     public float PatrolChance => patrolChance;
     public float PatrolDetectionDistance => patrolDetectionDistance;
     public float ChaseWaitTime => chaseWaitTime;
+    public float DetectionSightAngle => detectionSightAngle;
+    public float MinimumRunDistance => minimumRunDistance;
     
     private Collider[] _detectionResults = new Collider[1];
     
@@ -110,6 +114,14 @@ public class EnemyController : MonoBehaviour
         // 감지 범위
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, PatrolDetectionDistance);
+        
+        // 시야각
+        Gizmos.color = Color.red;
+        Vector3 rightDirection = Quaternion.Euler(0, detectionSightAngle, 0) * Vector3.forward;
+        Vector3 leftDirection = Quaternion.Euler(0, -detectionSightAngle, 0) * Vector3.forward;
+        Gizmos.DrawLine(transform.position, rightDirection * PatrolDetectionDistance);
+        Gizmos.DrawLine(transform.position, leftDirection * PatrolDetectionDistance);
+        Gizmos.DrawLine(transform.position, transform.position * PatrolDetectionDistance);
         
         // Agent 목적지 표시
         if (_navMeshAgent != null && _navMeshAgent.hasPath)
