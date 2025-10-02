@@ -10351,6 +10351,7 @@ GameObject:
   - component: {fileID: 3074657719329313370}
   - component: {fileID: 3074657719329313369}
   - component: {fileID: 3074657719329313371}
+  - component: {fileID: 3074657719329313372}
   m_Layer: 8
   m_Name: Chomper
   m_TagString: Untagged
@@ -12574,6 +12575,24 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &3074657719329313372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3074657719321895322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f89e65a87617ec4395c9774dc540b97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MeleeController
+  triggerZones:
+  - position: {x: 0, y: 0.4, z: 0}
+    radius: 1
+  targetLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!137 &3074657719333465240
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0

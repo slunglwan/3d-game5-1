@@ -13,11 +13,15 @@ public class MeleeController : MonoBehaviour, IWeaponObservable<GameObject>
 
     private List<IWeaponObserver<GameObject>> _observers =
         new List<IWeaponObserver<GameObject>>();
+    
+    private bool _isTriggering;
 
     private void Awake()
     {
         _previousTriggerPositions = new Vector3[triggerZones.Length];
         _hitColliders = new HashSet<Collider>();
+
+        _isTriggering = false;
     }
 
     public void StartTrigger()
@@ -27,6 +31,8 @@ public class MeleeController : MonoBehaviour, IWeaponObservable<GameObject>
         {
             _previousTriggerPositions[i] = GetTriggerWorldPosition(triggerZones[i].position);
         }
+
+        _isTriggering = true;
     }
 
     public void EndTrigger()
@@ -35,10 +41,14 @@ public class MeleeController : MonoBehaviour, IWeaponObservable<GameObject>
         {
             Notify(hitCollider.gameObject);
         }
+        
+        _isTriggering = false;
     }
 
     private void FixedUpdate()
     {
+        if (!_isTriggering) return;
+        
         for (int i = 0; i < triggerZones.Length; i++)
         {
             var worldPosition = GetTriggerWorldPosition(triggerZones[i].position);
