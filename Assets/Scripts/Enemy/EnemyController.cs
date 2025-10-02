@@ -70,6 +70,11 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.GameState == EGameState.Pause)
+        {
+            SetState(EEnemyState.Idle);
+        }
+        
         if (State != EEnemyState.None)
         {
             _states[State].Update();

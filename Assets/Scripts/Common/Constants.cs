@@ -6,6 +6,18 @@ public static class Constants
     public const float Gravity = -9.81f;
     
     // ----------------------------------------
+    // Game Manager
+    public enum ESceneName
+    {
+        Main, Stage01, Stage02
+    }
+
+    public enum EGameState
+    {
+        None, Play, Pause
+    }
+    
+    // ----------------------------------------
     // Layer Mask
     public static LayerMask GroundLayerMask => LayerMask.GetMask("Ground");
     

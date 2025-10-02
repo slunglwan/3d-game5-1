@@ -76,6 +76,11 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.GameState == EGameState.Pause)
+        {
+            SetState(EPlayerState.Idle);
+        }
+        
         if (State != EPlayerState.None)
         {
             _states[State].Update();

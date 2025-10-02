@@ -27,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4124065456270814596}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.028229691, y: -0.97173387, z: 0.1663088, w: 0.16515975}
+  m_LocalRotation: {x: 0.028232796, y: -0.9717336, z: 0.1663078, w: 0.16516177}
   m_LocalPosition: {x: 0.53969485, y: 1.4103583, z: 1.559186}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 19.423, y: -160.707, z: 0.004}
 --- !u!20 &4068024858798037641
 Camera:
   m_ObjectHideFlags: 0
@@ -107,3 +107,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
   rotationSpeed: 50
   distance: 3
+  obstacleLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
