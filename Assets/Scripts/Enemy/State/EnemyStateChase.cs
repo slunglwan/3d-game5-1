@@ -25,9 +25,14 @@ public class EnemyStateChase: EnemyState, ICharacterState
             // 공격
             if (!_navMeshAgent.pathPending &&
                 _navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance &&
-                _waitTime > _enemyController.AttackWaitTime)
+                _waitTime > _enemyController.AttackWaitTime &&
+                DetectionTargetInSight(detectionTargetTransform.position))
             {
                 _enemyController.SetState(EEnemyState.Attack);
+            }
+            else
+            {
+                _waitTime = 0f;
             }
             
             // 달리기 구현
