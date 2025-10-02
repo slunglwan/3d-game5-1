@@ -86,6 +86,7 @@ public class EnemyController : MonoBehaviour
 
     public void SetHit(int damage, Vector3 attackDirection)
     {
+        SetState(EEnemyState.Hit);
         StartCoroutine(Knockback(attackDirection));
     }
 

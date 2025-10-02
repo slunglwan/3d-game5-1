@@ -23,6 +23,9 @@ public static class Constants
     public static readonly int PlayerAniParamAttack = Animator.StringToHash("attack");
     public static readonly int PlayerAniParamMoveSpeed = Animator.StringToHash("move_speed");
     public static readonly int PlayerAniParamGroundDistance = Animator.StringToHash("ground_distance");
+    public static readonly int PlayerAniParamHit = Animator.StringToHash("hit");
+    public static readonly int PlayerAniParamHitX = Animator.StringToHash("hit_x");
+    public static readonly int PlayerAniParamHitZ = Animator.StringToHash("hit_z");
     
     // ----------------------------------------
     // Enemy 상태
