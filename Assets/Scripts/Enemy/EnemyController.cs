@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float chaseWaitTime = 1f;
     [SerializeField] private float detectionSightAngle = 30f;
     [SerializeField] private float minimumRunDistance = 1f;
+    [SerializeField] private float attackWaitTime = 0f;
     
     // AI 관련
     public float PatrolWaitTime => patrolWaitTime;
@@ -24,7 +25,8 @@ public class EnemyController : MonoBehaviour
     public float ChaseWaitTime => chaseWaitTime;
     public float DetectionSightAngle => detectionSightAngle;
     public float MinimumRunDistance => minimumRunDistance;
-    
+    public float AttackWaitTime => attackWaitTime;
+
     private Collider[] _detectionResults = new Collider[1];
     
     private Animator _animator;

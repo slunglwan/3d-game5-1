@@ -4,6 +4,8 @@ using static Constants;
 
 public class EnemyStateChase: EnemyState, ICharacterState
 {
+    private float _waitTime;
+    
     public EnemyStateChase(EnemyController enemyController, Animator animator, NavMeshAgent navMeshAgent) 
         : base(enemyController, animator, navMeshAgent) { }
 
@@ -11,6 +13,8 @@ public class EnemyStateChase: EnemyState, ICharacterState
     {
         _navMeshAgent.isStopped = false;
         _animator.SetBool(EnemyAniParamChase, true);
+
+        _waitTime = 0f;
     }
 
     public void Update()
@@ -18,6 +22,14 @@ public class EnemyStateChase: EnemyState, ICharacterState
         var detectionTargetTransform = _enemyController.DetectionTargetInCircle();
         if (detectionTargetTransform)
         {
+            // 공격
+            if (!_navMeshAgent.pathPending &&
+                _navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance &&
+                _waitTime > _enemyController.AttackWaitTime)
+            {
+                _enemyController.SetState(EEnemyState.Attack);
+            }
+            
             // 달리기 구현
             if (DetectionTargetInSight(detectionTargetTransform.position)
                 && _navMeshAgent.remainingDistance > _enemyController.MinimumRunDistance)
@@ -35,6 +47,8 @@ public class EnemyStateChase: EnemyState, ICharacterState
         {
             _enemyController.SetState(EEnemyState.Idle);
         }
+        
+        _waitTime += Time.deltaTime;
     }
 
     public void Exit()

@@ -12585,6 +12585,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   chaseWaitTime: 1
+  detectionSightAngle: 30
+  minimumRunDistance: 2
+  attackWaitTime: 0
 --- !u!137 &3074657719333465240
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
