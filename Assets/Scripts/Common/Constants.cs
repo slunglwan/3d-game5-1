@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public static class Constants
@@ -39,4 +40,11 @@ public static class Constants
     public static readonly int EnemyAniParamHit = Animator.StringToHash("hit");
     public static readonly int EnemyAniParamDead = Animator.StringToHash("dead");
     public static readonly int EnemyAniParamMoveSpeed = Animator.StringToHash("move_speed");
+
+    [Serializable]
+    public class WeaponTriggerZone
+    {
+        public Vector3 position;
+        public float radius;
+    }
 }
