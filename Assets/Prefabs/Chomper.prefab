@@ -777,6 +777,10 @@ MonoBehaviour:
   detectionSightAngle: 30
   minimumRunDistance: 2
   attackWaitTime: 0
+  enemyStatus:
+    maxHp: 100
+    hp: 100
+    attackPower: 10
 --- !u!195 &7199243010141058965
 NavMeshAgent:
   m_ObjectHideFlags: 0

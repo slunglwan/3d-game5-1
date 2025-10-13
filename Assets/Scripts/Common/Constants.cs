@@ -62,4 +62,12 @@ public static class Constants
         public Vector3 position;
         public float radius;
     }
+
+    [Serializable]
+    public class EnemyStatus
+    {
+        public int maxHp;
+        public int hp;
+        public int attackPower;
+    }
 }

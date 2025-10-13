@@ -18,6 +18,9 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float detectionSightAngle = 30f;
     [SerializeField] private float minimumRunDistance = 1f;
     [SerializeField] private float attackWaitTime = 0f;
+
+    [Header("Status")]
+    [SerializeField] private EnemyStatus enemyStatus;
     
     // AI 관련
     public float PatrolWaitTime => patrolWaitTime;
