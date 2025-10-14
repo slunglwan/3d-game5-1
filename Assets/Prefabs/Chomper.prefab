@@ -710,6 +710,7 @@ GameObject:
   - component: {fileID: 7827674348956761870}
   - component: {fileID: 6811170041805004810}
   - component: {fileID: 3285983240420658107}
+  - component: {fileID: 5899278781921730753}
   m_Layer: 8
   m_Name: Chomper
   m_TagString: Untagged
@@ -823,10 +824,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Radius: 0.4
+  m_Height: 1.2
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &6811170041805004810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -858,6 +859,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HPBarController
   hpBarPrefab: {fileID: 8758909580001180308, guid: bb223a05f83a8f343945dbf26b0f3067, type: 3}
+--- !u!54 &5899278781921730753
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2221482000415003588}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2224706053693602908
 GameObject:
   m_ObjectHideFlags: 0
