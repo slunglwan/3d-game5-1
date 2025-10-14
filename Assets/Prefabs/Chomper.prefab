@@ -709,6 +709,7 @@ GameObject:
   - component: {fileID: 7199243010141058965}
   - component: {fileID: 7827674348956761870}
   - component: {fileID: 6811170041805004810}
+  - component: {fileID: 3285983240420658107}
   m_Layer: 8
   m_Name: Chomper
   m_TagString: Untagged
@@ -844,6 +845,19 @@ MonoBehaviour:
   targetLayerMask:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &3285983240420658107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2221482000415003588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2af576989a0d8544a78f29a6d6d6f88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HPBarController
+  hpBarPrefab: {fileID: 8758909580001180308, guid: bb223a05f83a8f343945dbf26b0f3067, type: 3}
 --- !u!1 &2224706053693602908
 GameObject:
   m_ObjectHideFlags: 0
