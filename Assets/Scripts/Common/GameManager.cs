@@ -24,6 +24,11 @@ public class GameManager: Singleton<GameManager>
 
     public void SetGameState(EGameState state)
     {
+        if (state == EGameState.Pause)
+        {
+            _player.GetComponent<PlayerController>().SetState(EPlayerState.Idle);
+        }
+        
         GameState = state;
     }
 
@@ -34,7 +39,8 @@ public class GameManager: Singleton<GameManager>
 
     private IEnumerator LoadSceneAsync(ESceneName sceneName)
     {
-        GameState = EGameState.Pause;
+        // GameState = EGameState.Pause;
+        SetGameState(EGameState.Pause);
         
         // 로딩 화면 띄우기
         var loadingPanelPrefab = Resources.Load<GameObject>("Loading Panel");
@@ -81,9 +87,9 @@ public class GameManager: Singleton<GameManager>
                 var spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint").transform;
                 if (_player)
                 {
-                    _player.SetActive(true);
                     _player.transform.position = spawnPoint.position;
                     _player.transform.rotation = spawnPoint.rotation;
+                    _player.SetActive(true);
                 }
                 else
                 {
@@ -93,7 +99,8 @@ public class GameManager: Singleton<GameManager>
                 break;
         }
 
-        GameState = EGameState.Play;
+        // GameState = EGameState.Play;
+        SetGameState(EGameState.Play);
     }
 
     protected override void OnSceneUnloaded(Scene scene)
