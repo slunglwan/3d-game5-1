@@ -84,6 +84,7 @@ public class GameManager: Singleton<GameManager>
                 break;
             case "Stage01":
             case "Stage02":
+            case "Stage02-1":
                 var spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint").transform;
                 if (_player)
                 {
